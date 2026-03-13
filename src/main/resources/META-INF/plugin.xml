@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>com.blastradius.plugin</id>
+    <name>AI Blast Radius Analyzer</name>
+    <vendor email="user@example.com" url="http://www.example.com">Blast Radius Team</vendor>
+    <description><![CDATA[
+      Analyzes the "blast radius" of code changes in real-time.<br>
+      Shows how many files, classes, and downstream dependencies are affected when you modify a class.<br>
+      Displays impact analysis in the editor gutter with color-coded icons and detailed popups.<br>
+      Uses IntelliJ PSI for static dependency analysis and Git for change history tracking.
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+    <depends>Git4Idea</depends>
+    <depends>org.jetbrains.plugins.github</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.lineMarkerProvider language="JAVA"
+            implementationClass="com.blastradius.plugin.BlastRadiusLineMarkerProvider" />
+    </extensions>
+
+    <actions>
+        <action id="BlastRadius.AnalyzeAction"
+                class="com.blastradius.plugin.actions.AnalyzeBlastRadiusAction"
+                text="Analyze Blast Radius"
+                description="Analyze the blast radius of the current file">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
