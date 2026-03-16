@@ -15,7 +15,7 @@
     <depends>Git4Idea</depends>
     <depends>org.jetbrains.plugins.github</depends>
 
-    <idea-version since-build="232" until-build="252.*"/>
+    <idea-version since-build="232" until-build="*"/>
 
     <extensions defaultExtensionNs="com.intellij">
         <codeInsight.lineMarkerProvider language="JAVA"
