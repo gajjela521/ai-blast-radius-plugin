@@ -14,6 +14,11 @@ dependencies {
     // Basic dependencies for JSON/HTTP if needed
     implementation("org.json:json:20231013")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // Test dependencies
+    testImplementation(platform("org.junit:junit-bom:5.10.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.mockito:mockito-core:5.8.0")
 }
 
 intellij {
@@ -27,6 +32,10 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "17"
         targetCompatibility = "17"
+    }
+
+    withType<Test> {
+        useJUnitPlatform()
     }
 
     patchPluginXml {

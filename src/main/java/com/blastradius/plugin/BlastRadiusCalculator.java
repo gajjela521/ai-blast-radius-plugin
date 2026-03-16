@@ -12,7 +12,6 @@ import git4idea.repo.GitRepository;
 import git4idea.repo.GitRepositoryManager;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Calculates the blast radius of a Java class by analyzing:
@@ -170,13 +169,15 @@ public class BlastRadiusCalculator {
             Map<String, Integer> coChangeCount = new HashMap<>();
 
             for (var commit : commits) {
-                // Each commit's changed paths indicate files that changed together
-                var changedPaths = commit.getChangedPaths();
-                if (changedPaths != null) {
-                    for (var path : changedPaths) {
-                        String filePath = path.getPath();
-                        if (!filePath.equals(virtualFile.getPath())) {
-                            coChangeCount.merge(filePath, 1, Integer::sum);
+                // Each commit's changes indicate files that changed together
+                var changes = commit.getChanges();
+                if (changes != null) {
+                    for (var change : changes) {
+                        if (change.getVirtualFile() != null) {
+                            String filePath = change.getVirtualFile().getPath();
+                            if (!filePath.equals(virtualFile.getPath())) {
+                                coChangeCount.merge(filePath, 1, Integer::sum);
+                            }
                         }
                     }
                 }
