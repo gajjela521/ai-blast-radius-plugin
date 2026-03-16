@@ -1,6 +1,7 @@
 <idea-plugin>
     <id>com.blastradius.plugin</id>
     <name>AI Blast Radius Analyzer</name>
+    <vendor email="gajjelasuryateja2021@gmail.com" url="https://github.com/gajjela521">Surya Teja Gajjela</vendor>
     <description><![CDATA[
       Analyzes the "blast radius" of code changes in real-time.<br>
       Shows how many files, classes, and downstream dependencies are affected when you modify a class.<br>
@@ -15,7 +16,7 @@
     <depends>Git4Idea</depends>
     <depends>org.jetbrains.plugins.github</depends>
 
-    <idea-version since-build="232" until-build="*"/>
+    <idea-version since-build="232"/>
 
     <extensions defaultExtensionNs="com.intellij">
         <codeInsight.lineMarkerProvider language="JAVA"
