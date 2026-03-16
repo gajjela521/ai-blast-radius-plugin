@@ -47,7 +47,8 @@ public class BlastRadiusLineMarkerProvider implements LineMarkerProvider {
                 (Function<PsiElement, String>) e -> tooltip,
                 (GutterIconNavigationHandler<PsiElement>) (mouseEvent, elt) ->
                         BlastRadiusPopupRenderer.showPopup(mouseEvent, result),
-                GutterIconRenderer.Alignment.LEFT
+                GutterIconRenderer.Alignment.LEFT,
+                () -> "Blast Radius: " + result.getSeverity()
         );
     }
 }
