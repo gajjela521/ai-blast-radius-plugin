@@ -1,7 +1,6 @@
 <idea-plugin>
     <id>com.blastradius.plugin</id>
     <name>AI Blast Radius Analyzer</name>
-    <vendor email="user@example.com" url="http://www.example.com">Blast Radius Team</vendor>
     <description><![CDATA[
       Analyzes the "blast radius" of code changes in real-time.<br>
       Shows how many files, classes, and downstream dependencies are affected when you modify a class.<br>
